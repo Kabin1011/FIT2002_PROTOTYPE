@@ -1,0 +1,73 @@
+export const SAMPLE_QUESTS = [
+  {
+    questId: 'q001',
+    title: 'Street Art Discovery: Hosier Lane',
+    description: "Explore Melbourne\'s most famous graffiti laneway",
+    tags: ['art', 'architecture'],
+    location: {
+      lat: -37.8179,
+      lng: 144.969,
+      address: 'Hosier Lane, Melbourne VIC 3000',
+    },
+    estimatedDuration: 45,
+    difficulty: 'Easy',
+    stops: 3,
+  },
+  {
+    questId: 'q002',
+    title: 'Coffee Culture Trail',
+    description: "Taste Melbourne\'s best specialty coffee spots",
+    tags: ['food', 'architecture'],
+    location: {
+      lat: -37.8105,
+      lng: 144.964,
+      address: 'Degraves Street, Melbourne VIC 3000',
+    },
+    estimatedDuration: 90,
+    difficulty: 'Easy',
+    stops: 5,
+  },
+  {
+    questId: 'q003',
+    title: 'Colonial History Walk',
+    description: "Discover Melbourne\'s founding stories",
+    tags: ['history', 'architecture'],
+    location: {
+      lat: -37.8172,
+      lng: 144.968,
+      address: 'Federation Square, Melbourne VIC 3000',
+    },
+    estimatedDuration: 120,
+    difficulty: 'Medium',
+    stops: 7,
+  },
+  {
+    questId: 'q004',
+    title: 'Live Music Heritage Tour',
+    description: 'Visit iconic Melbourne music venues',
+    tags: ['music', 'history'],
+    location: {
+      lat: -37.8083,
+      lng: 144.9547,
+      address: 'Brunswick Street, Fitzroy VIC 3065',
+    },
+    estimatedDuration: 150,
+    difficulty: 'Medium',
+    stops: 6,
+  },
+  {
+    questId: 'q005',
+    title: "Foodie\'s Paradise: Queen Vic Market",
+    description: 'Sample diverse cuisines at historic market',
+    tags: ['food', 'history'],
+    location: {
+      lat: -37.8076,
+      lng: 144.9568,
+      address: 'Queen Victoria Market, Melbourne VIC 3000',
+    },
+    estimatedDuration: 120,
+    difficulty: 'Easy',
+    stops: 8,
+  },
+]
+

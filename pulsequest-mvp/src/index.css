@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: system-ui, ui-sans-serif, system, sans-serif;
+
+  /* Poulls-style Nature-Inspired Eco Theme */
+  /* Sage Greens */
+  --color-sage-50: #E8EFE6;
+  --color-sage-100: #D4E0D1;
+  --color-sage-200: #C8D5C3;
+  --color-sage-300: #A8C0A3;
+  --color-sage-400: #8AAE87;
+  --color-sage-500: #7A9E76;
+  --color-sage-600: #6B8E65;
+  --color-sage-700: #4A6347;
+  --color-sage-800: #2D4A2B;
+  --color-sage-900: #1A2E19;
+
+  /* Forest Greens */
+  --color-forest-800: #2D4A2B;
+  --color-forest-900: #1A2E19;
+
+  /* Moss Greens */
+  --color-moss-300: #9CAF88;
+  --color-moss-400: #8AAE87;
+  --color-moss-500: #7A9E76;
+
+  /* Warm Neutrals */
+  --color-warm-50: #F5F3EE;
+  --color-warm-100: #E8E5DC;
+  --color-cream-50: #FAF8F3;
+
+  /* Taupe/Earth Tones */
+  --color-taupe-400: #A39B8E;
+  --color-taupe-500: #8B7D6B;
+  --color-taupe-600: #6B5D52;
+  --color-taupe-700: #5A4F45;
+  --color-charcoal-800: #3A3634;
+
+  /* Accent Colors */
+  --color-terracotta-400: #D18E6A;
+  --color-terracotta-500: #C17855;
+  --color-terracotta-600: #B06740;
+  --color-golden-300: #F0CC8F;
+  --color-golden-400: #E6B86D;
+  --color-golden-500: #DCA54B;
+  --color-sky-muted-300: #9DC7CF;
+  --color-sky-muted-400: #7AAAB3;
+  --color-sky-muted-500: #5A8A93;
+  --color-clay-500: #C5735F;
+  --color-clay-600: #B5634F;
+  --color-clay-700: #9A5340;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  background: var(--color-warm-50);
+  color: var(--color-taupe-600);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Animations */
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.3s ease-out;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+/* Hide scrollbar but allow scrolling */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Safe area padding for mobile */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Custom shadow utilities */
+.shadow-sage-sm {
+  box-shadow: 0 2px 8px rgba(107, 142, 101, 0.08);
+}
+
+.shadow-sage-md {
+  box-shadow: 0 4px 12px rgba(107, 142, 101, 0.15);
+}
+
+.shadow-sage-lg {
+  box-shadow: 0 8px 20px rgba(107, 142, 101, 0.15);
+}
+
+.shadow-sage-xl {
+  box-shadow: 0 20px 60px rgba(107, 142, 101, 0.2);
+}
+
+.shadow-sage-glow {
+  box-shadow: 0 0 20px rgba(107, 142, 101, 0.15);
+}
+
+/* Gradient backgrounds */
+.bg-earth-sage {
+  background: linear-gradient(to right, #8AAE87, #6B8E65);
+}
+
+.bg-nature-fade {
+  background: linear-gradient(to bottom, #E8EFE6, #C8D5C3);
+}
+
+.bg-completion-bg {
+  background: linear-gradient(135deg, #E8EFE6 0%, #FAF8F3 100%);
+}
+
+/* Leaflet map fixes */
+.leaflet-container {
+  background: #E8EFE6;
+}
+
+.leaflet-tile-pane {
+  filter: brightness(1.0) saturate(0.95);
+}
