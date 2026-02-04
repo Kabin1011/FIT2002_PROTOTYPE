@@ -602,7 +602,7 @@ export const QUESTS_DATA = [
     title: 'Melbourne Architecture Icons',
     shortDescription: 'Explore stunning buildings old and new',
     fullDescription: "Melbourne's architecture tells the story of a city constantly reinventing itself. This quest takes you from Victorian-era grandeur to cutting-edge contemporary design. Discover how Melbourne balances heritage preservation with bold new architecture, and learn why the city is considered one of the world's great architectural destinations.",
-    heroImageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+    heroImageUrl: 'https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=800',
     tags: ['architecture', 'history'],
     location: {
       lat: -37.8136,
