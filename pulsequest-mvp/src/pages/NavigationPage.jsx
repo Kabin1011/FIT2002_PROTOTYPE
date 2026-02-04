@@ -55,6 +55,7 @@ export default function NavigationPage() {
 
   const [showMenu, setShowMenu] = useState(false)
   const [showCancelConfirm, setShowCancelConfirm] = useState(false)
+  const [showDemoComplete, setShowDemoComplete] = useState(false)
   const [showCompletionModal, setShowCompletionModal] = useState(false)
   const [showToast, setShowToast] = useState(false)
   const [toastMessage, setToastMessage] = useState('')
@@ -148,6 +149,20 @@ export default function NavigationPage() {
     }, 0)
   }
 
+  const handleDemoComplete = () => {
+    setShowDemoComplete(false)
+    const updatedQuest = markStopComplete(currentStop.stopId)
+
+    if (updatedQuest && updatedQuest.completedStops.length === totalStops) {
+      completeQuest()
+      setShowCompletionModal(true)
+    } else {
+      setToastMessage('Stop completed (Demo Mode)! On to the next one.')
+      setShowToast(true)
+      setTimeout(() => setShowToast(false), 3000)
+    }
+  }
+
   if (!quest) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-warm-50">
@@ -177,7 +192,7 @@ export default function NavigationPage() {
   return (
     <div className="h-screen flex flex-col bg-warm-50">
       {/* Header */}
-      <header className="flex-shrink-0 flex items-center justify-between px-4 py-3 bg-white/95 backdrop-blur-sm border-b border-sage-200 z-20 shadow-sage-sm">
+      <header className="flex-shrink-0 flex items-center justify-between px-4 py-3 bg-white/95 backdrop-blur-sm border-b border-sage-200 z-[1000] shadow-sage-sm">
         <button
           onClick={() => navigate('/my-quests')}
           className="p-2 -ml-2 text-taupe-500 hover:text-sage-600 transition-colors"
@@ -197,7 +212,17 @@ export default function NavigationPage() {
             </svg>
           </button>
           {showMenu && (
-            <div className="absolute right-0 mt-2 w-44 bg-white rounded-xl shadow-sage-lg border border-sage-200 py-1 z-30">
+            <div className="absolute right-0 mt-2 w-52 bg-white rounded-xl shadow-sage-lg border border-sage-200 py-1 z-[9999]">
+              <button
+                onClick={() => {
+                  setShowMenu(false)
+                  setShowDemoComplete(true)
+                }}
+                className="w-full text-left px-4 py-2 text-sm text-sage-600 hover:bg-sage-50 transition-colors border-b border-sage-100"
+              >
+                <div className="font-medium">Complete Stop</div>
+                <div className="text-xs text-taupe-400">Demo only</div>
+              </button>
               <button
                 onClick={() => {
                   setShowMenu(false)
@@ -310,6 +335,42 @@ export default function NavigationPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             {toastMessage}
+          </div>
+        </div>
+      )}
+
+      {/* Demo Complete Confirmation */}
+      {showDemoComplete && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-forest-800/40 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-sage-xl border-2 border-sage-200">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
+                <svg className="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-forest-800">Demo Mode</h3>
+            </div>
+            <p className="text-taupe-600 mb-2">
+              Complete <span className="font-medium text-forest-700">"{currentStop?.name}"</span> without being at the location?
+            </p>
+            <p className="text-xs text-taupe-400 mb-6 bg-amber-50 p-2 rounded-lg">
+              This bypasses the location check for demonstration purposes only.
+            </p>
+            <div className="space-y-3">
+              <button
+                onClick={handleDemoComplete}
+                className="w-full py-3 bg-sage-600 hover:bg-sage-700 text-white rounded-xl font-medium transition-colors"
+              >
+                Yes, Complete Stop
+              </button>
+              <button
+                onClick={() => setShowDemoComplete(false)}
+                className="w-full py-3 border-2 border-sage-200 hover:bg-sage-50 text-taupe-600 rounded-xl font-medium transition-colors"
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       )}
