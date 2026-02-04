@@ -98,6 +98,12 @@ export function QuestsProvider({ children }) {
 
   const cancelQuest = () => {
     setActiveQuests([])
+    // Immediately persist to localStorage to prevent race conditions
+    try {
+      window.localStorage.setItem(ACTIVE_QUESTS_KEY, JSON.stringify([]))
+    } catch {
+      // ignore storage errors
+    }
   }
 
   const isQuestCompleted = (questId) => {

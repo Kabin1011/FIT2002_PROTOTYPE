@@ -140,8 +140,12 @@ export default function NavigationPage() {
   }
 
   const handleCancelQuest = () => {
+    setShowCancelConfirm(false)
     cancelQuest()
-    navigate('/my-quests')
+    // Navigate after state update completes
+    setTimeout(() => {
+      navigate('/my-quests')
+    }, 0)
   }
 
   if (!quest) {
