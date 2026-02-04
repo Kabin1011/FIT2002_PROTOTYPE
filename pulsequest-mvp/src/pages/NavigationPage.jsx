@@ -51,7 +51,7 @@ export default function NavigationPage() {
   const { questId } = useParams()
   const navigate = useNavigate()
   const { user } = useUser()
-  const { getActiveQuest, markStopComplete, completeQuest } = useQuests()
+  const { getActiveQuest, markStopComplete, completeQuest, cancelQuest } = useQuests()
 
   const [showMenu, setShowMenu] = useState(false)
   const [showCancelConfirm, setShowCancelConfirm] = useState(false)
@@ -140,7 +140,6 @@ export default function NavigationPage() {
   }
 
   const handleCancelQuest = () => {
-    const { cancelQuest } = useQuests()
     cancelQuest()
     navigate('/my-quests')
   }
