@@ -304,7 +304,7 @@ export default function NavigationPage() {
 
       {/* Toast */}
       {showToast && (
-        <div className="fixed top-20 left-4 right-4 z-50 animate-slide-down">
+        <div className="fixed top-20 left-4 right-4 z-[9999] animate-slide-down">
           <div className="bg-sage-600 text-white px-4 py-3 rounded-xl shadow-sage-lg flex items-center gap-2">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -316,7 +316,7 @@ export default function NavigationPage() {
 
       {/* Cancel Confirmation */}
       {showCancelConfirm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-forest-800/40 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-forest-800/40 backdrop-blur-sm">
           <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-sage-xl border-2 border-sage-200">
             <h3 className="text-xl font-bold text-forest-800 mb-2">Cancel Quest?</h3>
             <p className="text-taupe-600 mb-6">
@@ -342,7 +342,7 @@ export default function NavigationPage() {
 
       {/* Completion Modal */}
       {showCompletionModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-forest-800/40 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-forest-800/40 backdrop-blur-sm">
           <div className="bg-completion-bg rounded-3xl p-6 max-w-sm w-full text-center shadow-sage-xl border-2 border-moss-400">
             <div className="w-16 h-16 bg-golden-400/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg className="w-8 h-8 text-golden-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
